@@ -2,13 +2,13 @@
   "name": "react-input-box-done-typing",
   "version": "0.1.0",
   "description": "TODO",
-  "main": "index.js",
+  "main": "src/InputBoxDoneTyping.js",
   "scripts": {
-    "test": "TODO"
+    "test": "mocha src/ --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
-    "url": "TODO"
+    "url": "https://github.com/mattiaerre/react-input-box-done-typing.git"
   },
   "keywords": [
     "TODO"
@@ -17,5 +17,26 @@
     "name": "Mattia Richetto",
     "email": "mattia.richetto@gmail.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "chai": "^3.5.0",
+    "enzyme": "^2.4.1",
+    "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.3.0",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  }
 }
