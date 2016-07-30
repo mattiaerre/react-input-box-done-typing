@@ -1,6 +1,6 @@
 {
   "name": "react-input-box-done-typing",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A React component that triggers a callback when the user has finished typing in the input text box",
   "main": "lib/index.js",
   "scripts": {
