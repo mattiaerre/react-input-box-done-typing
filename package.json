@@ -2,9 +2,12 @@
   "name": "react-input-box-done-typing",
   "version": "0.1.4",
   "description": "A React component that triggers a callback when the user has finished typing in the input text box",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "babel src/InputBoxDoneTyping.js --out-file index.js",
+    "budo": "budo demo/bundle.js --dir demo/ --open --live -- -t babelify",
+    "build": "babel src/InputBoxDoneTyping.js --out-file lib/index.js",
+    "build:demo": "babel demo/index.js --out-file demo/bundle.js",
+    "demo": "npm run build:demo && npm run budo",
     "prepublish": "npm run build",
     "test": "mocha src/ --compilers js:babel-core/register"
   },
@@ -30,6 +33,7 @@
     "babel-core": "^6.11.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
     "chai": "^3.5.0",
     "enzyme": "^2.4.1",
     "mocha": "^2.5.3",
@@ -38,6 +42,7 @@
     "sinon-chai": "^2.8.0"
   },
   "dependencies": {
+    "budo": "^8.3.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0"
   },

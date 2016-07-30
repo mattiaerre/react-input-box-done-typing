@@ -1,0 +1,12 @@
+body {
+  padding: 1em;
+}
+
+body, input {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+input {
+  margin: 1em 0;
+  width: 20em;
+}
