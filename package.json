@@ -1,7 +1,7 @@
 {
   "name": "react-input-box-done-typing",
   "version": "0.1.0",
-  "description": "TODO",
+  "description": "A React component that triggers a callback when the user has finished typing in the input text box",
   "main": "src/InputBoxDoneTyping.js",
   "scripts": {
     "test": "mocha src/ --compilers js:babel-core/register"
@@ -11,7 +11,12 @@
     "url": "https://github.com/mattiaerre/react-input-box-done-typing.git"
   },
   "keywords": [
-    "TODO"
+    "callback",
+    "component",
+    "debounce",
+    "delay",
+    "react",
+    "typing"
   ],
   "author": {
     "name": "Mattia Richetto",
