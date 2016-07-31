@@ -8,6 +8,7 @@
     "build": "babel src/InputBoxDoneTyping.js --out-file lib/index.js",
     "build:demo": "babel demo/index.js --out-file demo/bundle.js",
     "demo": "npm run build:demo && npm run budo",
+    "preinstall": "mkdir -p lib",
     "prepublish": "npm run build",
     "test": "mocha src/ --compilers js:babel-core/register"
   },

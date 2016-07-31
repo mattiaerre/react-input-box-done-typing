@@ -6,17 +6,19 @@ A React component that triggers a callback when the user has finished typing in 
 
 Install via npm using the following npm command:
 
-`npm i -S react-input-box-done-typing`
+```shell
+npm i -S react-input-box-done-typing
+```
 
 Include the component within your React application:
 
-```js
+```javascript
 import InputBoxDoneTyping from 'react-input-box-done-typing';
 ```
 
 And use it inside your container:
 
-```js
+```javascript
 <InputBoxDoneTyping
   inputClassName="form-control"
   inputOnChange={(value) => { console.log('inputOnChange:', value); } }
@@ -38,13 +40,14 @@ Name | Type | Required | Default
 
 ## Demo
 
-Run a live demo using the following npm command:
+Clone or download this GitHub repository then run a live demo using the following npm commands:
 
-`npm run demo`
+```shell
+npm i
+npm run demo
+```
 
 The script will automatically open a tab of your default browser;
 you will be able to see the **InputBoxDoneTyping** component in action
 
 ![alt text](demo.png "demo")
-
-
