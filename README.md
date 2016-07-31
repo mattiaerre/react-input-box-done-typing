@@ -20,6 +20,7 @@ And use it inside your container:
 
 ```javascript
 <InputBoxDoneTyping
+  inputId="input-box-done-typing"
   inputClassName="form-control"
   inputPlaceholde="Start typing ..."
   inputOnChange={(value) => { console.log('inputOnChange:', value); } }
@@ -33,6 +34,7 @@ And use it inside your container:
 
 Name | Type | Required | Default | Options
 --- | --- | --- | --- | ---
+`inputId` | `string` | no | - | -
 `inputClassName` | `string` | no | - | -
 `inputPlaceholder` | `string` | no | - | -
 `inputAutoComplete` | `string` | no | on | ['on', 'off']

@@ -7,6 +7,7 @@ const App = (props) => {
     <div className="container">
       <div className="row">
         <InputBoxDoneTyping
+          inputId="input-box-done-typing"
           inputClassName="form-control"
           inputPlaceholde="Start typing ..."
           inputOnChange={(value) => { console.log('inputOnChange:', value); } }

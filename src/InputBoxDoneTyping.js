@@ -29,19 +29,23 @@ const InputBoxDoneTyping = (props) => {
   }
 
   return (
-    <input type="text"
-       autoComplete={props.inputAutoComplete}
-       className={props.inputClassName}
-       placeholder={props.inputPlaceholder}
-       defaultValue={props.inputDefaultValue}
-       onChange={handleOnChange}
-       onKeyUp={handleOnKeyUp}
-       onKeyDown={handleOnKeyDown}
+    <input
+      type="text"
+      id={props.inputId}
+      autoComplete={props.inputAutoComplete}
+      className={props.inputClassName}
+      placeholder={props.inputPlaceholder}
+      defaultValue={props.inputDefaultValue}
+      onChange={handleOnChange}
+      onKeyUp={handleOnKeyUp}
+      onKeyDown={handleOnKeyDown}
     />
   );
 }
 
 InputBoxDoneTyping.defaultProps = {
+  inputId: '',
+  inputClassName: '',
   inputAutoComplete: 'on',
   inputPlaceholder: '',
   inputDefaultValue: '',
@@ -49,6 +53,7 @@ InputBoxDoneTyping.defaultProps = {
 };
 
 InputBoxDoneTyping.propTypes = {
+  inputId: PropTypes.string,
   inputAutoComplete: PropTypes.oneOf(['on','off']),
   inputClassName: PropTypes.string,
   inputPlaceholder: PropTypes.string,
