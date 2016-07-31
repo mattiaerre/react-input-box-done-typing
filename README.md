@@ -21,7 +21,7 @@ And use it inside your container:
 ```javascript
 <InputBoxDoneTyping
   inputClassName="form-control"
-  inputPlaceholde="Input text here"
+  inputPlaceholde="Start typing ..."
   inputOnChange={(value) => { console.log('inputOnChange:', value); } }
   inputDefaultValue="lon"
   doneTypingInterval={2000}

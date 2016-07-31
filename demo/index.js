@@ -8,7 +8,7 @@ const App = (props) => {
       <div className="row">
         <InputBoxDoneTyping
           inputClassName="form-control"
-          inputPlaceholde="Input text here"
+          inputPlaceholde="Start typing ..."
           inputOnChange={(value) => { console.log('inputOnChange:', value); } }
           inputDefaultValue="lon"
           doneTypingInterval={2000}
