@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 
 const InputBoxDoneTyping = (props) => {
   let typingTimer;
-  let before = props.inputDefaultValue || '';
+  let before = props.inputDefaultValue;
 
   const handleOnChange = (e) => {
     if (props.inputOnChange) {
@@ -30,21 +30,31 @@ const InputBoxDoneTyping = (props) => {
 
   return (
     <input type="text"
-      className={props.inputClassName}
-      defaultValue={props.inputDefaultValue}
-      onChange={handleOnChange}
-      onKeyUp={handleOnKeyUp}
-      onKeyDown={handleOnKeyDown}
-      />
+           autoComplete={props.autoComplete}
+           className={props.inputClassName}
+           placeholder={props.inputPlaceholder}
+           defaultValue={props.inputDefaultValue}
+           onChange={handleOnChange}
+           onKeyUp={handleOnKeyUp}
+           onKeyDown={handleOnKeyDown}
+    />
   );
 }
 
+InputBoxDoneTyping.defaultProps = {
+  autoComplete: 'on',
+  inputPlaceholder: '',
+  inputDefaultValue: '',
+};
+
 InputBoxDoneTyping.propTypes = {
+  autoComplete: PropTypes.oneOf(['on','off']),
   inputClassName: PropTypes.string,
+  inputPlaceholder: PropTypes.string,
   inputOnChange: PropTypes.func,
   inputDefaultValue: PropTypes.string,
   doneTypingInterval: PropTypes.number,
-  inputDoneTyping: PropTypes.func.isRequired
+  inputDoneTyping: PropTypes.func.isRequired,
 };
 
 export default InputBoxDoneTyping;
