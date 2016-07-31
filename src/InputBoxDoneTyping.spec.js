@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import chai, {expect} from 'chai';
+import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import InputBoxDoneTyping from './InputBoxDoneTyping';
@@ -9,48 +9,58 @@ chai.should();
 chai.use(sinonChai);
 
 describe('<InputBoxDoneTyping />', () => {
-  it('should be an input element', () => {
-    const props = {
-      inputDoneTyping: sinon.spy()
+  let props;
+  let wrapper;
+  let clock;
+
+  const typing = { lon: 'lon', lond: 'lond' }
+
+  beforeEach(() => {
+    props = {
+      doneTypingInterval: 5,
+      inputDoneTyping: sinon.spy(),
+      inputOnChange: sinon.spy(),
+      inputDefaultValue: typing.lon
     };
 
-    const wrapper = shallow(<InputBoxDoneTyping {...props} />);
+    wrapper = shallow(<InputBoxDoneTyping {...props} />);
 
+    clock = sinon.useFakeTimers();
+  });
+
+  it('should be an input element', () => {
     const actual = wrapper.type();
-    const expected = 'input';
-
-    expect(actual).to.equal(expected);
+    actual.should.equal('input');
   });
 
   it('should handle change', () => {
-    const props = {
-      inputOnChange: sinon.spy(),
-      inputDoneTyping: sinon.spy()
-    };
-
-    const wrapper = shallow(<InputBoxDoneTyping {...props} />);
-
     props.inputOnChange.should.not.have.been.called;
-    wrapper.simulate('change', { target: { value: 'lon' } });
-    expect(props.inputOnChange).to.have.been.calledWith('lon');
+    wrapper.simulate('change', { target: { value: typing.lon } });
+    props.inputOnChange.should.have.been.calledWith(typing.lon);
   });
 
   it('should notify done typing', () => {
-    const props = {
-      doneTypingInterval: 5,
-      inputDoneTyping: sinon.spy()
-    };
-
-    const wrapper = shallow(<InputBoxDoneTyping {...props} />);
-
-    const clock = sinon.useFakeTimers();
-
     props.inputDoneTyping.should.not.have.been.called;
-    wrapper.simulate('keyup', { target: { value: 'lon' } });
-
+    wrapper.simulate('keyup', { target: { value: typing.lond } });
     clock.tick(10);
-    clock.restore();
+    props.inputDoneTyping.should.have.been.calledWith(typing.lond);
+  });
 
-    expect(props.inputDoneTyping).to.have.been.calledWith('lon');
+  it('shouldn\'t notify done typing if user input doesn\'t change', () => {
+    props.inputDoneTyping.should.not.have.been.called;
+    wrapper.simulate('keyup', { target: { value: typing.lon } });
+    clock.tick(10);
+    props.inputDoneTyping.should.not.have.been.calledWith(typing.lon);
+  });
+
+  it('shouldn\'t notify done typing if user input changes capitalisation only', () => {
+    props.inputDoneTyping.should.not.have.been.called;
+    wrapper.simulate('keyup', { target: { value: typing.lon.toUpperCase() } });
+    clock.tick(10);
+    props.inputDoneTyping.should.not.have.been.calledWith(typing.lon);
+  });
+
+  afterEach(() => {
+    clock.restore();
   });
 });

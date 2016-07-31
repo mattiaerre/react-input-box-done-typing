@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 
 const InputBoxDoneTyping = (props) => {
   let typingTimer;
+  let before = props.inputDefaultValue || '';
 
   const handleOnChange = (e) => {
     if (props.inputOnChange) {
@@ -21,7 +22,10 @@ const InputBoxDoneTyping = (props) => {
   }
 
   const doneTyping = (value) => {
-    props.inputDoneTyping(value);
+    if (value.toLowerCase() !== before.toLowerCase()) {
+      before = value;
+      props.inputDoneTyping(value);
+    }
   }
 
   return (
