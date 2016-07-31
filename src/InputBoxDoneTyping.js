@@ -39,7 +39,7 @@ const InputBoxDoneTyping = (props) => {
       onChange={handleOnChange}
       onKeyUp={handleOnKeyUp}
       onKeyDown={handleOnKeyDown}
-    />
+      />
   );
 }
 
@@ -54,7 +54,7 @@ InputBoxDoneTyping.defaultProps = {
 
 InputBoxDoneTyping.propTypes = {
   inputId: PropTypes.string,
-  inputAutoComplete: PropTypes.oneOf(['on','off']),
+  inputAutoComplete: PropTypes.oneOf(['on', 'off']),
   inputClassName: PropTypes.string,
   inputPlaceholder: PropTypes.string,
   inputOnChange: PropTypes.func,
