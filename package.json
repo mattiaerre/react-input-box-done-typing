@@ -17,10 +17,13 @@
     "url": "https://github.com/mattiaerre/react-input-box-done-typing.git"
   },
   "keywords": [
+    "box",
     "callback",
     "component",
     "debounce",
     "delay",
+    "done",
+    "input",
     "react",
     "react-component",
     "typing"
