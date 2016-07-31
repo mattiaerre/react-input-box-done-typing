@@ -22,7 +22,7 @@ And use it inside your container:
 <InputBoxDoneTyping
   inputId="input-box-done-typing"
   inputClassName="form-control"
-  inputPlaceholde="Start typing ..."
+  inputPlaceholder="Start typing ..."
   inputOnChange={(value) => { console.log('inputOnChange:', value); } }
   inputDefaultValue="lon"
   doneTypingInterval={2000}

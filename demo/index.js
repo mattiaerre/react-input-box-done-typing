@@ -9,7 +9,6 @@ const App = (props) => {
         <InputBoxDoneTyping
           inputId="input-box-done-typing"
           inputClassName="form-control"
-          inputPlaceholde="Start typing ..."
           inputOnChange={(value) => { console.log('inputOnChange:', value); } }
           inputDefaultValue="lon"
           doneTypingInterval={2000}
@@ -19,6 +18,7 @@ const App = (props) => {
       <div className="row">
         <InputBoxDoneTyping
           inputClassName="form-control"
+          inputPlaceholder="Start typing ..."
           inputDoneTyping={(value) => { console.log('inputDoneTyping:', value); } }
           />
       </div>
