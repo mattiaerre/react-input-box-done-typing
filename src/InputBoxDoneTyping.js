@@ -14,7 +14,7 @@ const InputBoxDoneTyping = (props) => {
   const handleOnKeyUp = (e) => {
     const value = e.target.value;
     clearTimeout(typingTimer);
-    typingTimer = setTimeout(() => { doneTyping(value); }, props.doneTypingInterval || 500);
+    typingTimer = setTimeout(() => { doneTyping(value); }, props.doneTypingInterval);
   }
 
   const handleOnKeyDown = () => {
@@ -45,6 +45,7 @@ InputBoxDoneTyping.defaultProps = {
   inputAutoComplete: 'on',
   inputPlaceholder: '',
   inputDefaultValue: '',
+  doneTypingInterval: 500,
 };
 
 InputBoxDoneTyping.propTypes = {
