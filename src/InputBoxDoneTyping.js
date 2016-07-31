@@ -24,10 +24,6 @@ const InputBoxDoneTyping = (props) => {
     props.inputDoneTyping(value);
   }
 
-  const consoleLogMessageAndValue = (message, value) => {
-    console.log(message, value);
-  }
-
   return (
     <input type="text"
       className={props.inputClassName}

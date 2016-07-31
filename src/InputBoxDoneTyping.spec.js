@@ -37,13 +37,20 @@ describe('<InputBoxDoneTyping />', () => {
 
   it('should notify done typing', () => {
     const props = {
+      doneTypingInterval: 5,
       inputDoneTyping: sinon.spy()
     };
 
     const wrapper = shallow(<InputBoxDoneTyping {...props} />);
 
+    const clock = sinon.useFakeTimers();
+
     props.inputDoneTyping.should.not.have.been.called;
     wrapper.simulate('keyup', { target: { value: 'lon' } });
+
+    clock.tick(10);
+    clock.restore();
+
     expect(props.inputDoneTyping).to.have.been.calledWith('lon');
   });
 });
