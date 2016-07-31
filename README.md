@@ -23,10 +23,10 @@ And use it inside your container:
   inputId="input-box-done-typing"
   inputClassName="form-control"
   inputPlaceholder="Start typing ..."
-  inputOnChange={(value) => { console.log('inputOnChange:', value); } }
   inputDefaultValue="lon"
-  doneTypingInterval={2000}
+  inputOnChange={(value) => { console.log('inputOnChange:', value); } }
   inputDoneTyping={(value) => { console.log('inputDoneTyping:', value); } }
+  doneTypingInterval={2000}
   />
 ```
 
@@ -37,12 +37,11 @@ Name | Type | Required | Default | Options
 `inputId` | `string` | no | - | -
 `inputClassName` | `string` | no | - | -
 `inputPlaceholder` | `string` | no | - | -
+`inputDefaultValue` | `string` | no | - | -
 `inputAutoComplete` | `string` | no | on | ['on', 'off']
 `inputOnChange` | `function` | no | - | -
-`inputDefaultValue` | `string` | no | - | -
-`doneTypingInterval` | `number` | no | 500 (milliseconds) | -
 `inputDoneTyping` | `function` | yes | - | -
-
+`doneTypingInterval` | `number` | no | 500 (milliseconds) | -
 
 ## Demo
 

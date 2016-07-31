@@ -7,10 +7,10 @@ const App = (props) => {
     <div className="container">
       <div className="row">
         <InputBoxDoneTyping
-          inputOnChange={(value) => { console.log('inputOnChange:', value); } }
           inputDefaultValue="lon"
-          doneTypingInterval={2000}
+          inputOnChange={(value) => { console.log('inputOnChange:', value); } }
           inputDoneTyping={(value) => { console.log('inputDoneTyping:', value); } }
+          doneTypingInterval={2000}
           />
       </div>
       <div className="row">

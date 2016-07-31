@@ -10,3 +10,7 @@ input {
   margin: 1em 0;
   width: 20em;
 }
+
+.form-control {
+  font-family: Courier New, Courier, monospace;
+}
