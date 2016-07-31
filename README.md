@@ -21,6 +21,7 @@ And use it inside your container:
 ```javascript
 <InputBoxDoneTyping
   inputClassName="form-control"
+  inputPlaceholde="Input text here"
   inputOnChange={(value) => { console.log('inputOnChange:', value); } }
   inputDefaultValue="lon"
   doneTypingInterval={2000}
@@ -30,13 +31,16 @@ And use it inside your container:
 
 ## Attributes
 
-Name | Type | Required | Default
---- | --- | --- | ---
-`inputClassName` | `string` | no | -
-`inputOnChange` | `function` | no | -
-`inputDefaultValue` | `string` | no | -
-`doneTypingInterval` | `number` | no | 500 (milliseconds)
-`inputDoneTyping` | `function` | yes | -
+Name | Type | Required | Default | Options
+--- | --- | --- | --- | ---
+`inputClassName` | `string` | no | - | -
+`inputPlaceholder` | `string` | no | - | -
+`inputAutoComplete` | `string` | no | on | ['on', 'off']
+`inputOnChange` | `function` | no | - | -
+`inputDefaultValue` | `string` | no | - | -
+`doneTypingInterval` | `number` | no | 500 (milliseconds) | -
+`inputDoneTyping` | `function` | yes | - | -
+
 
 ## Demo
 
