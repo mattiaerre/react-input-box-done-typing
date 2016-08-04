@@ -20,12 +20,13 @@ And use it inside your container:
 
 ```javascript
 <InputBoxDoneTyping
-  inputId="input-box-done-typing"
-  inputClassName="form-control"
-  inputPlaceholder="Start typing ..."
-  inputDefaultValue="lon"
-  inputOnChange={(value) => { console.log('inputOnChange:', value); } }
-  inputDoneTyping={(value) => { console.log('inputDoneTyping:', value); } }
+  id="input-box-done-typing"
+  className="form-control"
+  placeholder="Start typing ..."
+  defaultValue="lon"
+  autoComplete="on"
+  onChange={(value) => { console.log('onChange:', value); } }
+  doneTyping={(value) => { console.log('doneTyping:', value); } }
   doneTypingInterval={2000}
   />
 ```
@@ -34,13 +35,13 @@ And use it inside your container:
 
 Name | Type | Required | Default | Options
 --- | --- | --- | --- | ---
-`inputId` | `string` | no | - | -
-`inputClassName` | `string` | no | - | -
-`inputPlaceholder` | `string` | no | - | -
-`inputDefaultValue` | `string` | no | - | -
-`inputAutoComplete` | `string` | no | on | ['on', 'off']
-`inputOnChange` | `function` | no | - | -
-`inputDoneTyping` | `function` | yes | - | -
+`id` | `string` | no | - | -
+`className` | `string` | no | - | -
+`placeholder` | `string` | no | - | -
+`defaultValue` | `string` | no | - | -
+`autoComplete` | `string` | no | on | ['on', 'off']
+`onChange` | `function` | no | - | -
+`doneTyping` | `function` | yes | - | -
 `doneTypingInterval` | `number` | no | 500 (milliseconds) | -
 
 ## Demo

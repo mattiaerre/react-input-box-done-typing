@@ -17,10 +17,10 @@ describe('<InputBoxDoneTyping />', () => {
 
   beforeEach(() => {
     props = {
-      doneTypingInterval: 5,
-      inputDoneTyping: sinon.spy(),
-      inputOnChange: sinon.spy(),
-      inputDefaultValue: typing.lon
+      defaultValue: typing.lon,
+      onChange: sinon.spy(),
+      doneTyping: sinon.spy(),
+      doneTypingInterval: 5
     };
 
     wrapper = shallow(<InputBoxDoneTyping {...props} />);
@@ -34,30 +34,16 @@ describe('<InputBoxDoneTyping />', () => {
   });
 
   it('should handle change', () => {
-    props.inputOnChange.should.not.have.been.called;
+    props.onChange.should.not.have.been.called;
     wrapper.simulate('change', { target: { value: typing.lon } });
-    props.inputOnChange.should.have.been.calledWith(typing.lon);
+    props.onChange.should.have.been.calledWith(typing.lon);
   });
 
   it('should notify done typing', () => {
-    props.inputDoneTyping.should.not.have.been.called;
+    props.doneTyping.should.not.have.been.called;
     wrapper.simulate('keyup', { target: { value: typing.lond } });
     clock.tick(10);
-    props.inputDoneTyping.should.have.been.calledWith(typing.lond);
-  });
-
-  it('shouldn\'t notify done typing if user input doesn\'t change', () => {
-    props.inputDoneTyping.should.not.have.been.called;
-    wrapper.simulate('keyup', { target: { value: typing.lon } });
-    clock.tick(10);
-    props.inputDoneTyping.should.not.have.been.calledWith(typing.lon);
-  });
-
-  it('shouldn\'t notify done typing if user input changes capitalisation only', () => {
-    props.inputDoneTyping.should.not.have.been.called;
-    wrapper.simulate('keyup', { target: { value: typing.lon.toUpperCase() } });
-    clock.tick(10);
-    props.inputDoneTyping.should.not.have.been.calledWith(typing.lon);
+    props.doneTyping.should.have.been.calledWith(typing.lond);
   });
 
   afterEach(() => {

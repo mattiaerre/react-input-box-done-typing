@@ -2,18 +2,17 @@ import React, {PropTypes} from 'react';
 
 const InputBoxDoneTyping = (props) => {
   let typingTimer;
-  let before = props.inputDefaultValue;
 
   const handleOnChange = (e) => {
-    if (props.inputOnChange) {
+    if (props.onChange) {
       const value = e.target.value;
-      props.inputOnChange(value);
+      props.onChange(value);
     }
   }
 
   const handleOnKeyUp = (e) => {
-    const value = e.target.value;
     clearTimeout(typingTimer);
+    const value = e.target.value;
     typingTimer = setTimeout(() => { doneTyping(value); }, props.doneTypingInterval);
   }
 
@@ -22,20 +21,17 @@ const InputBoxDoneTyping = (props) => {
   }
 
   const doneTyping = (value) => {
-    if (value.toLowerCase() !== before.toLowerCase()) {
-      before = value;
-      props.inputDoneTyping(value);
-    }
+    props.doneTyping(value);
   }
 
   return (
     <input
       type="text"
-      id={props.inputId}
-      className={props.inputClassName}
-      placeholder={props.inputPlaceholder}
-      defaultValue={props.inputDefaultValue}
-      autoComplete={props.inputAutoComplete}
+      id={props.id}
+      className={props.className}
+      placeholder={props.placeholder}
+      defaultValue={props.defaultValue}
+      autoComplete={props.autoComplete}
       onChange={handleOnChange}
       onKeyUp={handleOnKeyUp}
       onKeyDown={handleOnKeyDown}
@@ -44,22 +40,18 @@ const InputBoxDoneTyping = (props) => {
 }
 
 InputBoxDoneTyping.defaultProps = {
-  inputId: '',
-  inputClassName: '',
-  inputPlaceholder: '',
-  inputDefaultValue: '',
-  inputAutoComplete: 'on',
+  autoComplete: 'on',
   doneTypingInterval: 500
 };
 
 InputBoxDoneTyping.propTypes = {
-  inputId: PropTypes.string,
-  inputClassName: PropTypes.string,
-  inputPlaceholder: PropTypes.string,
-  inputDefaultValue: PropTypes.string,
-  inputAutoComplete: PropTypes.oneOf(['on', 'off']),
-  inputOnChange: PropTypes.func,
-  inputDoneTyping: PropTypes.func.isRequired,
+  id: PropTypes.string,
+  className: PropTypes.string,
+  placeholder: PropTypes.string,
+  defaultValue: PropTypes.string,
+  autoComplete: PropTypes.oneOf(['on', 'off']),
+  onChange: PropTypes.func,
+  doneTyping: PropTypes.func.isRequired,
   doneTypingInterval: PropTypes.number
 };
 

@@ -7,24 +7,24 @@ const App = (props) => {
     <div className="container">
       <div className="row">
         <InputBoxDoneTyping
-          inputDefaultValue="lon"
-          inputOnChange={(value) => { console.log('inputOnChange:', value); } }
-          inputDoneTyping={(value) => { console.log('inputDoneTyping:', value); } }
+          defaultValue="lon"
+          onChange={(value) => { console.log('onChange:', value); } }
+          doneTyping={(value) => { console.log('doneTyping:', value); } }
           doneTypingInterval={2000}
           />
       </div>
       <div className="row">
         <InputBoxDoneTyping
-          inputDoneTyping={(value) => { console.log('inputDoneTyping:', value); } }
+          doneTyping={(value) => { console.log('doneTyping:', value); } }
           />
       </div>
       <div className="row">
         <InputBoxDoneTyping
-          inputId="input-box-done-typing"
-          inputClassName="form-control"
-          inputPlaceholder="Start typing ..."
-          inputAutoComplete="on"
-          inputDoneTyping={(value) => { console.log('inputDoneTyping:', value); } }
+          id="input-box-done-typing"
+          className="form-control"
+          placeholder="Start typing ..."
+          autoComplete="on"
+          doneTyping={(value) => { console.log('doneTyping:', value); } }
           />
       </div>
     </div>
