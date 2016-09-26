@@ -29,6 +29,6 @@ const App = (props) => {
       </div>
     </div>
   );
-}
+};
 
 ReactDOM.render(<App />, document.querySelector('#app'));

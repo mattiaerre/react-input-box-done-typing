@@ -1,9 +1,9 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import InputBoxDoneTyping from './InputBoxDoneTyping';
+import InputBoxDoneTyping from '../src/InputBoxDoneTyping';
 
 chai.should();
 chai.use(sinonChai);
@@ -13,14 +13,14 @@ describe('<InputBoxDoneTyping />', () => {
   let wrapper;
   let clock;
 
-  const typing = { lon: 'lon', lond: 'lond' }
+  const typing = { l: 'l', lo: 'lo', lon: 'lon', lond: 'lond' };
 
   beforeEach(() => {
     props = {
       defaultValue: typing.lon,
       onChange: sinon.spy(),
       doneTyping: sinon.spy(),
-      doneTypingInterval: 5
+      doneTypingInterval: 5,
     };
 
     wrapper = shallow(<InputBoxDoneTyping {...props} />);
@@ -41,8 +41,18 @@ describe('<InputBoxDoneTyping />', () => {
 
   it('should notify done typing', () => {
     props.doneTyping.should.not.have.been.called;
+    wrapper.simulate('keydown', { target: { value: typing.l } });
+    wrapper.simulate('keyup', { target: { value: typing.l } });
+    clock.tick(1);
+    wrapper.simulate('keydown', { target: { value: typing.lo } });
+    wrapper.simulate('keyup', { target: { value: typing.lo } });
+    clock.tick(1);
+    wrapper.simulate('keydown', { target: { value: typing.lon } });
+    wrapper.simulate('keyup', { target: { value: typing.lon } });
+    clock.tick(1);
+    wrapper.simulate('keydown', { target: { value: typing.lond } });
     wrapper.simulate('keyup', { target: { value: typing.lond } });
-    clock.tick(10);
+    clock.tick(5);
     props.doneTyping.should.have.been.calledWith(typing.lond);
   });
 
