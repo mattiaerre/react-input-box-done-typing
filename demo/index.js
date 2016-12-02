@@ -23,6 +23,7 @@ const App = (props) => {
           id="input-box-done-typing"
           className="form-control"
           placeholder="Start typing ..."
+          maxLength={20}
           autoComplete="on"
           doneTyping={(value) => { console.log('doneTyping:', value); } }
           />
