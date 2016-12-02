@@ -23,6 +23,7 @@ And use it inside your container:
   id="input-box-done-typing"
   className="form-control"
   placeholder="Start typing ..."
+  maxLength={20}
   defaultValue="lon"
   autoComplete="on"
   onChange={(value) => { console.log('onChange:', value); } }
@@ -38,6 +39,7 @@ Name | Type | Required | Default | Options
 `id` | `string` | no | - | -
 `className` | `string` | no | - | -
 `placeholder` | `string` | no | - | -
+`maxLength` | `number` | no | - | -
 `defaultValue` | `string` | no | - | -
 `autoComplete` | `string` | no | on | ['on', 'off']
 `onChange` | `function` | no | - | -

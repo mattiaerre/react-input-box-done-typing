@@ -30,6 +30,7 @@ const InputBoxDoneTyping = (props) => {
       id={props.id}
       className={props.className}
       placeholder={props.placeholder}
+      maxLength={props.maxLength}
       defaultValue={props.defaultValue}
       autoComplete={props.autoComplete}
       onChange={handleOnChange}
@@ -48,6 +49,7 @@ InputBoxDoneTyping.propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   placeholder: PropTypes.string,
+  maxLength: PropTypes.number,
   defaultValue: PropTypes.string,
   autoComplete: PropTypes.oneOf(['on', 'off']),
   onChange: PropTypes.func,
